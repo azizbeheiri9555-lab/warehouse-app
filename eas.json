@@ -1,6 +1,6 @@
 {
   "cli": {
-    "version": ">= 10.0.0"
+    "version": ">= 9.0.0"
   },
   "build": {
     "development": {
@@ -11,7 +11,7 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "image": "ubuntu-22.04-jdk-21"
+        "image": "latest"
       }
     },
     "production": {}
