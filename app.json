@@ -1,11 +1,13 @@
 {
   "expo": {
-    "name": "إدارة المخازن والصيانة",
-    "slug": "warehouse-app",
+    "name": "المستودع",
+    "slug": "azizbeheiri9555-lab",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "android": {
-      "package": "com.aziz.warehouseapp"
+      "package": "com.azizbeheiri.warehouse"
     }
   }
 }
