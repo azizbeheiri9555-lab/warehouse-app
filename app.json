@@ -4,6 +4,7 @@
     "slug": "warehouse-app-ezrrrojbrhsjp5vmx",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "android": {
       "package": "com.azizbeheiri.warehouse"
