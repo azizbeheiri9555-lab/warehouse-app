@@ -3,10 +3,16 @@
     "version": ">= 9.0.0"
   },
   "build": {
-    "base_preview": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
       "android": {
         "buildType": "apk"
       }
-    }
+    },
+    "production": {}
   }
 }
