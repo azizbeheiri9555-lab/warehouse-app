@@ -88,19 +88,16 @@ export default function App() {
 
   // --- دالة تسجيل الدخول الكاملة والمتكاملة ---
   const handleLogin = () => {
-    // التحقق من وجود بيانات مدخلة
     if (!loginUsername.trim() || !loginPassword.trim()) {
       setLoginError('❌ الرجاء إدخال اسم المستخدم وكلمة المرور');
       return;
     }
 
-    // البحث عن المستخدم في قائمة users
     const foundUser = users.find(
       (user) => user.name === loginUsername && user.password === loginPassword
     );
 
     if (foundUser) {
-      // تسجيل الدخول ناجح ✅
       setIsLoggedIn(true);
       setCurrentUserRole(foundUser.role);
       setLoginError('');
@@ -108,10 +105,8 @@ export default function App() {
       setLoginPassword('');
       setCurrentScreen('dashboard');
       
-      // رسالة ترحيب للمستخدم
       Alert.alert('مرحباً بك', `تم تسجيل الدخول بنجاح\nالدور: ${foundUser.role === 'admin' ? 'مدير نظام' : foundUser.role === 'storekeeper' ? 'أمين مخزن' : 'مهندس صيانة'}`);
     } else {
-      // فشل تسجيل الدخول ❌
       setLoginError('❌ اسم المستخدم أو كلمة المرور غير صحيحة');
     }
   };
@@ -305,7 +300,6 @@ export default function App() {
   const filteredProducts = products.filter(p => p.name.includes(searchQuery) || p.id.toLowerCase().includes(searchQuery.toLowerCase()));
   const switchScreen = (screen) => { setCurrentScreen(screen); setIsMenuOpen(false); };
 
-  // --- إذا لم يتم تسجيل الدخول، نعرض شاشة تسجيل الدخول ---
   if (!isLoggedIn) {
     return (
       <View style={styles.loginContainer}>
@@ -345,10 +339,8 @@ export default function App() {
     );
   }
 
-  // --- إذا تم تسجيل الدخول، نعرض محتوى النظام بالكامل ---
   return (
     <View style={styles.mainContainer}>
-      {/* البار العلوي */}
       <View style={styles.topBar}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View style={[styles.roleIndicator, { backgroundColor: currentUserRole === 'admin' ? '#ef4444' : currentUserRole === 'storekeeper' ? '#10b981' : '#f59e0b' }]}>
@@ -364,7 +356,6 @@ export default function App() {
       </View>
 
       <View style={{ flex: 1 }}>
-        {/* لوحة التحكم */}
         {currentScreen === 'dashboard' && (
           <ScrollView style={styles.container}>
             <Text style={styles.welcomeText}>مرحباً بك في النظام 👋</Text>
@@ -410,7 +401,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* إدارة الأصناف */}
         {currentScreen === 'products' && (
           <FlatList
             data={filteredProducts}
@@ -441,7 +431,6 @@ export default function App() {
           />
         )}
 
-        {/* الربط مع الصيانة */}
         {currentScreen === 'maintenance' && (
           <ScrollView style={styles.container}>
             <View style={[styles.formCard, { borderColor: '#ef4444', borderTopWidth: 5 }]}>
@@ -454,7 +443,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* الجرد والمطابقة */}
         {currentScreen === 'audit' && (
           <ScrollView style={styles.container}>
             <View style={[styles.formCard, { borderColor: '#f59e0b', borderTopWidth: 5 }]}>
@@ -467,7 +455,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* استلام مواد */}
         {currentScreen === 'in' && (
           <ScrollView style={styles.container}>
             <View style={[styles.formCard, { borderColor: '#10b981', borderTopWidth: 5 }]}>
@@ -481,7 +468,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* صرف مواد */}
         {currentScreen === 'out' && (
           <ScrollView style={styles.container}>
             <View style={[styles.formCard, { borderColor: '#ec4899', borderTopWidth: 5 }]}>
@@ -495,7 +481,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* الموردون */}
         {currentScreen === 'suppliers' && (
           <FlatList
             data={suppliers}
@@ -522,7 +507,6 @@ export default function App() {
           />
         )}
 
-        {/* التقارير */}
         {currentScreen === 'reports' && (
           <ScrollView style={styles.container}>
             <Text style={styles.welcomeText}>📈 التقارير المالية</Text>
@@ -541,7 +525,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* إدارة المستخدمين والصلاحيات */}
         {currentScreen === 'roles' && (
           <ScrollView style={styles.container}>
             <Text style={styles.welcomeText}>👥 إدارة المستخدمين والصلاحيات</Text>
@@ -592,7 +575,6 @@ export default function App() {
           </ScrollView>
         )}
 
-        {/* القائمة الجانبية */}
         {isMenuOpen && (
           <View style={styles.customDrawer}>
             <Text style={styles.drawerHeader}>📋 قائمة النظام</Text>
@@ -615,7 +597,6 @@ export default function App() {
   );
 }
 
-// --- التنسيقات ---
 const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
