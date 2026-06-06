@@ -6,6 +6,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.azizbeheiri.warehouse"
+    },
     "extra": {
       "eas": {
         "projectId": "a8657f2c-ba78-4b33-8b78-6b733dcbfd05"
